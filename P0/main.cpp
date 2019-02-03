@@ -7,11 +7,28 @@
 //
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    cout << "Hello, World!\n";
+    
+    //keyboard input or redirection
+    switch (argc)
+    {
+    //keyboard input or redirection input
+        case 1:
+            cout << "Keyboard or redirection";
+            break;
+    //file input
+        case 2:
+            cout << "File input";
+            break;
+    //improper input
+        default:
+            cout << "Error";
+            break;
+    }
+    
     return 0;
 }
