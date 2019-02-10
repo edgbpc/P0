@@ -15,7 +15,6 @@
 #ifndef node_h
 #define node_h
 
-using namespace std;
 
 struct node{
     int data;

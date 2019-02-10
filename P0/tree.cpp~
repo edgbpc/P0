@@ -6,7 +6,7 @@
 //  Copyright © 2019 umsl. All rights reserved.
 //
 
-#include <stdio.h>
+#include <stdio>
 #include "tree.h"
 #include <string.h>
 #include <iostream>

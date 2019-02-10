@@ -51,7 +51,7 @@ int main(int argc, const char * argv[]) {
             fileName = argv[1];
             fileName.append(".sp19");
        //     cout << fileName << endl;
-            fileToRead.open(fileName.c_str());
+            fileToRead.open(fileName);
             break;
     
         default:
