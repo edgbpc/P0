@@ -13,12 +13,31 @@
 #include "node.h"
 
 
+class tree
+{
+    public:
+        tree();
+    
+        void buildTree(int key, string word);
+        node *search(int key);
+        void destroy_tree();
+    
+    private:
+        void destroy_tree(node *leaf);
+        void insert(int key, node *leaf, string word);
+        void *search(int key, node *leaf);
+    
+        node *root;
+    
+        //prototypes
+     //   void buildTree();
+        void printInorder();
+        void printPreorder();
+        void printPostorder();
 
-//prototypes
-void buildTree(int data, string word);
-void printInorder();
-void printPreorder();
-void printPostorder();
+    
+};
+
 
 
 

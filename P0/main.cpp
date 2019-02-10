@@ -19,8 +19,6 @@
 
 using namespace std;
 
-
-
 int main(int argc, const char * argv[]) {
     
     ifstream fileToRead; //get the data to be processed
@@ -31,6 +29,9 @@ int main(int argc, const char * argv[]) {
     string data; //variable that will be used in the tree
     string word;
     int wordLength;
+    
+    tree myTree;
+
 
     //keyboard input or redirection
     switch (argc)
@@ -66,7 +67,7 @@ int main(int argc, const char * argv[]) {
         wordLength = int(word.length());
         cout << wordLength << endl;
         
-       buildTree(wordLength, word);
+        myTree.buildTree(wordLength, word);
 
     }
     //clean up the temporary file created

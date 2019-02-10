@@ -6,71 +6,66 @@
 //  Copyright © 2019 umsl. All rights reserved.
 //
 
-#include <stdio.h>
 #include "tree.h"
-#include <string.h>
+#include <stdio.h>
 #include <iostream>
-#include "node.h"
-#include <set>
-#include <stdlib.h>
+
 
 /*
-this code is credited to https://www.tutorialspoint.com/data_structures_algorithms/tree_data_structure.htm
+this code is credited to https://www.cprogramming.com/tutorial/lesson18.html
 minor edits made to that to code for this project
 */
  
 using namespace std;
 
-struct node *root = NULL;
+//TEST TREE BUILDING
 
-void insert(int data, string word) {
-    struct node *tempNode = (struct node*) malloc(sizeof(struct node));
-    struct node *current;
-    struct node *parent;
-    
-    tempNode->data = data;
-    tempNode->words.insert(word);
-    tempNode->leftChild = NULL;
-    tempNode->rightChild = NULL;
-    
-    //if tree is empty, create root node
-    if(root == NULL) {
-        root = tempNode;
-    } else {
-        current = root;
-        parent  = NULL;
-        
-        while(1) {
-            parent = current;
-            
-            //go to left of the tree
-            if(data < parent->data) {
-                current = current->leftChild;
-                
-                //insert to the left
-                if(current == NULL) {
-                    parent->leftChild = tempNode;
-                    return;
-                }
-            }
-            
-            //go to right of the tree
-            else {
-                current = current->rightChild;
-                
-                //insert to the right
-                if(current == NULL) {
-                    parent->rightChild = tempNode;
-                    return;
-                }
-            }
+tree::tree()
+{
+    root = NULL;
+}
+
+void tree::insert(int key, node *leaf, string word){
+    if (key < leaf->key_value) {
+        if(leaf->left != NULL)
+            insert(key, leaf->left, word);
+        else {
+            leaf->left = new node;
+            leaf->left->key_value=key;
+            leaf->left->words.insert(word);
+            leaf->left->left = NULL;
+            leaf->left->right = NULL;
+        }
+    } else if (key >= leaf->key_value){
+        if(leaf->right != NULL)
+            insert(key, leaf->right, word);
+        else{
+            leaf->right = new node;
+            leaf->right->key_value = key;
+            leaf->right->words.insert(word);
+            leaf->right->left = NULL;
+            leaf->right->right = NULL;
         }
     }
 }
 
-//end cited code
-
-
-void buildTree(int data, string words){
-    insert(data, words);
+void tree::buildTree(int key, string word){
+    cout << key << endl;
+    if (root != NULL)
+        insert(key, root, word);
+    else {
+        root = new node;
+        root->key_value = key;
+        root->words.insert(word);
+        root->left = NULL;
+        root->right = NULL;
+    }
 }
+
+
+
+
+
+
+
+

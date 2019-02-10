@@ -17,12 +17,14 @@
 
 using namespace std;
 
-struct node{
-    int data;
+struct node {
+    int key_value;
     set<string> words;
-    struct node *leftChild;
-    struct node *rightChild;
+    node *left;
+    node *right;
 };
+
+
 
 
 
