@@ -6,25 +6,25 @@
 //  Copyright © 2019 umsl. All rights reserved.
 //
 
-#include <set>
-#include <string.h>
-#include <stdio.h>
 
 #ifndef node_h
 #define node_h
 
+#include <set>
+#include <string.h>
+#include <stdio.h>
+
+
+
 using namespace std;
 
-struct ListNode {
+struct node{
     int data;
-    ListNode *next;
+    set<string> words;
+    struct node *leftChild;
+    struct node *rightChild;
 };
 
-struct node{
-    int numCharacters;
-    set<string> words;
-    struct node *left;
-    struct node *right;
-};
+
 
 #endif /* node_h */

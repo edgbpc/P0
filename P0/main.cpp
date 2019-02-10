@@ -11,6 +11,7 @@
 #include <fstream>
 #include <stdio.h>
 #include "node.h"
+#include "tree.h"
 
 
 //changed in delmar
@@ -18,13 +19,18 @@
 
 using namespace std;
 
+
+
 int main(int argc, const char * argv[]) {
     
     ifstream fileToRead; //get the data to be processed
     ofstream fileToWrite;
+    ofstream file;
     
+    string fileName;
     string data; //variable that will be used in the tree
     string word;
+    int wordLength;
 
     //keyboard input or redirection
     switch (argc)
@@ -42,7 +48,10 @@ int main(int argc, const char * argv[]) {
     //file input
         case 2:
             cout << "File Input Mode" << endl;
-            fileToRead.open(argv[1]);
+            fileName = argv[1];
+            fileName.append(".sp19");
+       //     cout << fileName << endl;
+            fileToRead.open(fileName);
             break;
     
         default:
@@ -52,9 +61,16 @@ int main(int argc, const char * argv[]) {
     
     
     while (fileToRead >> word){
-        cout << word << endl;
+      //  cout << word << endl;
+        
+        wordLength = int(word.length());
+        cout << wordLength << endl;
+        
+       buildTree(wordLength, word);
 
     }
+    //clean up the temporary file created
+    remove("temp.dat");
     
     return 0;
 }
