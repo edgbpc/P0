@@ -28,8 +28,8 @@
 		C34B6E66220BAE1E002A7BAB /* file.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = file.dat; sourceTree = "<group>"; };
 		C35D433C2207812A00795724 /* P0 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = P0; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35D433F2207812A00795724 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C3B7D0AB2210FAB100F4C016 /* file.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = file.sp19; sourceTree = "<group>"; };
 		C3BC3E54220FB9ED007EC99C /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
-		C3BDF2712210965B008C881F /* file.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = file.sp19; sourceTree = "<group>"; };
 		C3BDF272221097BD008C881F /* tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
 		C3BDF273221097E6008C881F /* tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tree.cpp; sourceTree = "<group>"; };
 		C3BDF27522109846008C881F /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
@@ -68,10 +68,10 @@
 				C35D433F2207812A00795724 /* main.cpp */,
 				C34B6E66220BAE1E002A7BAB /* file.dat */,
 				C3BC3E54220FB9ED007EC99C /* node.h */,
-				C3BDF2712210965B008C881F /* file.sp19 */,
 				C3BDF272221097BD008C881F /* tree.h */,
 				C3BDF273221097E6008C881F /* tree.cpp */,
 				C3BDF27522109846008C881F /* makefile */,
+				C3B7D0AB2210FAB100F4C016 /* file.sp19 */,
 			);
 			path = P0;
 			sourceTree = "<group>";

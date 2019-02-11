@@ -21,6 +21,15 @@ class tree
         void buildTree(int key, string word);
         node *search(int key);
         void destroy_tree();
+        void printInorder(struct node* node);
+        void printPreorder(struct node* node);
+        void printPostorder(struct node* node);
+        node * getRoot(tree myTree);
+        int getLevelUtil(struct node * node, int key_value, int level);
+        int getLevel(struct node *node, int key_value);
+
+    
+
     
     private:
         void destroy_tree(node *leaf);
@@ -31,9 +40,7 @@ class tree
     
         //prototypes
      //   void buildTree();
-        void printInorder();
-        void printPreorder();
-        void printPostorder();
+
 
     
 };

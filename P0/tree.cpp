@@ -9,6 +9,7 @@
 #include "tree.h"
 #include <stdio.h>
 #include <iostream>
+#include "node.h"
 
 
 /*
@@ -50,7 +51,7 @@ void tree::insert(int key, node *leaf, string word){
 }
 
 void tree::buildTree(int key, string word){
-    cout << key << endl;
+  //  cout << key << endl;
     if (root != NULL)
         insert(key, root, word);
     else {
@@ -61,6 +62,89 @@ void tree::buildTree(int key, string word){
         root->right = NULL;
     }
 }
+
+void tree::printInorder(struct node* node){
+    if (node == NULL)
+        return;
+    
+    printInorder(node->left);
+    cout << node->key_value << " ";
+    for (string word : node->words){
+        cout << word << " ";
+    }
+    printInorder(node->right);
+    
+    }
+
+void tree::printPreorder(struct node* node){
+    if (node == NULL)
+        return;
+
+    cout << node->key_value << " ";
+    for (string word : node->words){
+        cout << word << " ";
+    }
+    printPreorder(node->left);
+    printPreorder(node->right);
+    
+}
+
+void tree::printPostorder(struct node* node){
+    if (node == NULL)
+        return;
+    printPostorder(node->left);
+    printPostorder(node->right);
+
+//    cout << node->key_value << ":";
+    int depth = getLevel(root, int(node->key_value));
+    cout << depth << ":";
+    for (auto it=node->words.begin(); it != node->words.end(); ++it){
+        
+        cout << *it << endl;
+}
+//    for (string word : node->words){
+//        int depth = getLevel(root, int(word.length()));
+//        for (int x = 0; x <= depth; x++){
+//            cout << "-";
+//        }
+    
+
+        //cout << word << endl;
+     }
+
+    
+
+
+
+node * tree::getRoot(tree myTree){
+    return myTree.root;
+}
+
+//https://www.geeksforgeeks.org/get-level-of-a-node-in-a-binary-tree
+
+int tree::getLevelUtil(struct node * node, int key_value, int level){
+    if (node == NULL)
+        return 0;
+    
+    if (node->key_value == key_value)
+        return level;
+    
+    int downlevel = getLevelUtil(node->left, key_value, level + 1);
+    
+    if (downlevel != 0)
+        return downlevel;
+    
+    downlevel = getLevelUtil(node->right, key_value, level + 1);
+    
+    return downlevel;
+}
+
+int tree::getLevel(struct node *node, int key_value){
+    return getLevelUtil(node, key_value, 1);
+}
+
+    
+
 
 
 

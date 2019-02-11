@@ -60,16 +60,18 @@ int main(int argc, const char * argv[]) {
             break;
     }
     
+
+    
     
     while (fileToRead >> word){
       //  cout << word << endl;
-        
-        wordLength = int(word.length());
-        cout << wordLength << endl;
-        
-        myTree.buildTree(wordLength, word);
 
+        wordLength = int(word.length());
+        //cout << wordLength << endl;
+        myTree.buildTree(wordLength, word);
     }
+    myTree.printPostorder(myTree.getRoot(myTree));
+
     //clean up the temporary file created
     remove("temp.dat");
     

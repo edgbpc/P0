@@ -8,12 +8,14 @@
 
 
 
+
+#ifndef node_h
+#define node_h
+
 #include <set>
 #include <string>
 #include <stdio.h>
 
-#ifndef node_h
-#define node_h
 
 using namespace std;
 
