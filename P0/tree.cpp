@@ -97,9 +97,12 @@ void tree::printPostorder(struct node* node){
 
 //    cout << node->key_value << ":";
     int depth = getLevel(root, int(node->key_value));
-    cout << depth << ":";
-    for (auto it=node->words.begin(); it != node->words.end(); ++it){
+    for (int i = 1; i <= depth; i++){
+        cout << "-";
         
+    }
+    cout << node->key_value << ":";
+    for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
         cout << *it << endl;
 }
 //    for (string word : node->words){
