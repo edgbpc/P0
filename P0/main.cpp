@@ -70,7 +70,15 @@ int main(int argc, const char * argv[]) {
         //cout << wordLength << endl;
         myTree.buildTree(wordLength, word);
     }
+    cout << "In order:" << endl;
+    myTree.printInorder(myTree.getRoot(myTree));
+    cout << endl;
+    cout << "Post order" << endl;
     myTree.printPostorder(myTree.getRoot(myTree));
+    cout << endl;
+    cout << "Pre order" << endl;
+    myTree.printPreorder(myTree.getRoot(myTree));
+    cout << endl;
 
     //clean up the temporary file created
     remove("temp.dat");

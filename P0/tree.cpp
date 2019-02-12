@@ -37,7 +37,7 @@ void tree::insert(int key, node *leaf, string word){
             leaf->left->left = NULL;
             leaf->left->right = NULL;
         }
-    } else if (key >= leaf->key_value){
+    } else if (key > leaf->key_value){
         if(leaf->right != NULL)
             insert(key, leaf->right, word);
         else{
@@ -47,6 +47,8 @@ void tree::insert(int key, node *leaf, string word){
             leaf->right->left = NULL;
             leaf->right->right = NULL;
         }
+    } else {
+        leaf->words.insert(word);
     }
 }
 
@@ -68,22 +70,32 @@ void tree::printInorder(struct node* node){
         return;
     
     printInorder(node->left);
-    cout << node->key_value << " ";
-    for (string word : node->words){
-        cout << word << " ";
+    for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
+        cout << node->key_value << ":";
+        int depth = getLevel(root, int(node->key_value));
+        for (int i = 1; i <= depth; i++){
+            cout << " ";
+        }
+        cout << *it << endl;
     }
+
     printInorder(node->right);
-    
-    }
+}
+
 
 void tree::printPreorder(struct node* node){
     if (node == NULL)
         return;
 
-    cout << node->key_value << " ";
-    for (string word : node->words){
-        cout << word << " ";
+    for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
+        cout << node->key_value << ":";
+        int depth = getLevel(root, int(node->key_value));
+        for (int i = 1; i <= depth; i++){
+            cout << " ";
+        }
+        cout << *it << endl;
     }
+
     printPreorder(node->left);
     printPreorder(node->right);
     
@@ -96,27 +108,16 @@ void tree::printPostorder(struct node* node){
     printPostorder(node->right);
 
 //    cout << node->key_value << ":";
-    int depth = getLevel(root, int(node->key_value));
-    for (int i = 1; i <= depth; i++){
-        cout << "-";
-        
-    }
-    cout << node->key_value << ":";
+    
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
+        cout << node->key_value << ":";
+        int depth = getLevel(root, int(node->key_value));
+        for (int i = 1; i <= depth; i++){
+            cout << " ";
+        }
         cout << *it << endl;
+    }
 }
-//    for (string word : node->words){
-//        int depth = getLevel(root, int(word.length()));
-//        for (int x = 0; x <= depth; x++){
-//            cout << "-";
-//        }
-    
-
-        //cout << word << endl;
-     }
-
-    
-
 
 
 node * tree::getRoot(tree myTree){
