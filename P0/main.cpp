@@ -13,10 +13,6 @@
 #include "node.h"
 #include "tree.h"
 
-
-//changed in delmar
-//changed in xcode
-
 using namespace std;
 
 int main(int argc, const char * argv[]) {
@@ -60,9 +56,6 @@ int main(int argc, const char * argv[]) {
             break;
     }
     
-
-    
-    
     while (fileToRead >> word){
       //  cout << word << endl;
 
@@ -70,13 +63,16 @@ int main(int argc, const char * argv[]) {
         //cout << wordLength << endl;
         myTree.buildTree(wordLength, word);
     }
+    freopen("out.InOrder", "w", stdout);
     cout << "In order:" << endl;
     myTree.printInorder(myTree.getRoot(myTree));
     cout << endl;
+    freopen("out.PostOrder", "w", stdout);
     cout << "Post order" << endl;
     myTree.printPostorder(myTree.getRoot(myTree));
     cout << endl;
-    cout << "Pre order" << endl;
+    freopen("out.PreOrder", "w", stdout);
+    cout << "Preorder" << endl;
     myTree.printPreorder(myTree.getRoot(myTree));
     cout << endl;
 

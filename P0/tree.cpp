@@ -129,17 +129,12 @@ node * tree::getRoot(tree myTree){
 int tree::getLevelUtil(struct node * node, int key_value, int level){
     if (node == NULL)
         return 0;
-    
     if (node->key_value == key_value)
         return level;
-    
     int downlevel = getLevelUtil(node->left, key_value, level + 1);
-    
     if (downlevel != 0)
         return downlevel;
-    
-    downlevel = getLevelUtil(node->right, key_value, level + 1);
-    
+    downlevel = getLevelUtil(node->right, key_value, level + 1);    
     return downlevel;
 }
 
