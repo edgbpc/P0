@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C35D43402207812A00795724 /* p0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35D433F2207812A00795724 /* p0.cpp */; };
 		C3BDF274221097E6008C881F /* tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3BDF273221097E6008C881F /* tree.cpp */; };
-		C3BDF27622109846008C881F /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C3BDF27522109846008C881F /* Makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +31,6 @@
 		C3BC3E54220FB9ED007EC99C /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		C3BDF272221097BD008C881F /* tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
 		C3BDF273221097E6008C881F /* tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tree.cpp; sourceTree = "<group>"; };
-		C3BDF27522109846008C881F /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +68,6 @@
 				C3BC3E54220FB9ED007EC99C /* node.h */,
 				C3BDF272221097BD008C881F /* tree.h */,
 				C3BDF273221097E6008C881F /* tree.cpp */,
-				C3BDF27522109846008C881F /* Makefile */,
 				C3B7D0AB2210FAB100F4C016 /* file.sp19 */,
 			);
 			path = P0;
@@ -134,7 +131,6 @@
 			files = (
 				C35D43402207812A00795724 /* p0.cpp in Sources */,
 				C3BDF274221097E6008C881F /* tree.cpp in Sources */,
-				C3BDF27622109846008C881F /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
