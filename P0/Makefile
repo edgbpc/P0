@@ -1,7 +1,7 @@
 CC    = g++
 CFLAGS  =
-TARGET1 = p0.cpp
-TARGET2 = tree.cpp
+TARGET1 = p0
+TARGET2 = tree
 OBJS1     = p0.o tree.o
 OBJS2     =
 LIBOBJS =
@@ -12,13 +12,13 @@ MYLIBS =
 
 all: $(TARGET1) $(TARGET2)
 
-p0: $(OBJS1)
-$(CC) $(CFLAGS) $(OBJS1) -o $@
+P0: $(OBJS1)
+	$(CC) $(CFLAGS) $(OBJS1) -o $@
 
 
 .c.o:
-$(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 .PHONY: clean
 clean:
-/bin/rm -f *.o *~ $(TARGET1) $(TARGET2)
+	/bin/rm -f *.o *~ $(TARGET1) $(TARGET2)
