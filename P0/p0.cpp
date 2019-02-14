@@ -37,9 +37,11 @@ int main(int argc, const char * argv[]) {
             cout << "Keyboard or redirection" << endl;
             fileToWrite.open("temp.dat");
             //hitting enter will end input.  simulated end of file?
-            getline(cin, data);
+         //   char delimiter = '*';
+            while (getline(cin, data)){
+                fileToWrite << data << endl;
+            };
             //will need to work on redirection on delmar
-            fileToWrite << data << endl;
             fileToRead.open("temp.dat");
             break;
     //file input
