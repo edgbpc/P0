@@ -38,9 +38,7 @@ int main(int argc, const char * argv[]) {
             fileToWrite.open("temp.dat");
             //hitting enter will end input.  simulated end of file?
          //   char delimiter = '*';
-            while (getline(cin, data)){
-                fileToWrite << data << endl;
-            };
+         
             //will need to work on redirection on delmar
             fileToRead.open("temp.dat");
             break;
