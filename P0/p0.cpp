@@ -15,6 +15,8 @@
 
 using namespace std;
 
+bool doesFileExistAndReadable(ifstream filename);
+
 int main(int argc, const char * argv[]) {
     
     ifstream fileToRead; //get the data to be processed
@@ -28,6 +30,7 @@ int main(int argc, const char * argv[]) {
     
     tree myTree;
 
+    
 
     //keyboard input or redirection
     switch (argc)
@@ -37,10 +40,13 @@ int main(int argc, const char * argv[]) {
             cout << "Keyboard or redirection" << endl;
             fileToWrite.open("temp.dat");
             //hitting enter will end input.  simulated end of file?
-         //   char delimiter = '*';
+            while (getline(cin, data)){
+                fileToWrite << data << endl;
+            }
          
             //will need to work on redirection on delmar
             fileToRead.open("temp.dat");
+            
             break;
     //file input
         case 2:
@@ -56,13 +62,18 @@ int main(int argc, const char * argv[]) {
             break;
     }
     
-    while (fileToRead >> word){
-      //  cout << word << endl;
+    if (fileToRead.good()){
+        while (fileToRead >> word){
+          //  cout << word << endl;
 
-        wordLength = int(word.length());
-        //cout << wordLength << endl;
-        myTree.buildTree(wordLength, word);
+            wordLength = int(word.length());
+            //cout << wordLength << endl;
+            myTree.buildTree(wordLength, word);
+        }
+    } else {
+            cout << "Error: Could not read file";
     }
+    
     freopen("out.InOrder", "w", stdout);
     cout << "In order:" << endl;
     myTree.printInorder(myTree.getRoot(myTree));
@@ -80,4 +91,11 @@ int main(int argc, const char * argv[]) {
     remove("temp.dat");
     
     return 0;
+    
 }
+
+bool doesFileExistAndReadable(ifstream filename){
+    return filename.good();
+
+}
+
