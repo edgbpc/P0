@@ -71,7 +71,7 @@ int main(int argc, const char * argv[]) {
             myTree.buildTree(wordLength, word);
         }
     } else {
-            cout << "Error: Could not read file";
+            cout << "Error: Could not read file.";
     }
     
     freopen("out.InOrder", "w", stdout);

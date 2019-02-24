@@ -27,6 +27,7 @@
 /* Begin PBXFileReference section */
 		C35D433C2207812A00795724 /* P0 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = P0; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35D433F2207812A00795724 /* p0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = p0.cpp; sourceTree = "<group>"; };
+		C37D351122221E45003A4EDE /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		C3B7D0AB2210FAB100F4C016 /* file.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = file.sp19; sourceTree = "<group>"; };
 		C3BC3E54220FB9ED007EC99C /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		C3BDF272221097BD008C881F /* tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 				C3BDF273221097E6008C881F /* tree.cpp */,
 				C3B7D0AB2210FAB100F4C016 /* file.sp19 */,
 				C3D360A222125D9300F8F334 /* Makefile */,
+				C37D351122221E45003A4EDE /* README */,
 			);
 			path = P0;
 			sourceTree = "<group>";

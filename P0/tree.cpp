@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "node.h"
+#include <string.h>
 
 
 /*
@@ -71,15 +72,20 @@ void tree::printInorder(struct node* node){
     
     printInorder(node->left);
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
-        cout << node->key_value << ":";
         int depth = getLevel(root, int(node->key_value));
-        for (int i = 1; i <= depth; i++){
-            cout << " ";
+        string word = *it;
+        
+        if (word == *node->words.begin()){
+            printf("%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
+            printf("\n");
+        } else {
+            printf("%*c  %-9s", depth*2, ' ', word.c_str());
+            printf("\n");
+            
         }
-        cout << *it << endl;
-    }
 
     printInorder(node->right);
+    }
 }
 
 
@@ -88,12 +94,18 @@ void tree::printPreorder(struct node* node){
         return;
 
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
-        cout << node->key_value << ":";
         int depth = getLevel(root, int(node->key_value));
-        for (int i = 1; i <= depth; i++){
-            cout << " ";
+        
+        string word = *it;
+    
+        if (word == *node->words.begin()){
+            printf("%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
+            printf("\n");
+        } else {
+            printf("%*c  %-9s", depth*2, ' ', word.c_str());
+            printf("\n");
+
         }
-        cout << *it << endl;
     }
 
     printPreorder(node->left);
@@ -110,12 +122,16 @@ void tree::printPostorder(struct node* node){
 //    cout << node->key_value << ":";
     
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
-        cout << node->key_value << ":";
         int depth = getLevel(root, int(node->key_value));
-        for (int i = 1; i <= depth; i++){
-            cout << " ";
+        string word = *it;
+    
+        if (word == *node->words.begin()){
+            printf("%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
+            printf("\n");
+        } else {
+            printf("%*c  %-9s", depth*2, ' ', word.c_str());
+            printf("\n");
         }
-        cout << *it << endl;
     }
 }
 
