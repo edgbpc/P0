@@ -25,6 +25,8 @@ int main(int argc, const char * argv[]) {
     FILE *outFile;
    
     string fileName;
+    string outFileNameBase;
+    string outFileName;
     string data; //variable that will be used in the tree
     string word;
     int wordLength;
@@ -42,6 +44,8 @@ int main(int argc, const char * argv[]) {
             while (getline(cin, data)){
                 fileToWrite << data << endl;
             }
+            outFileNameBase = "out";
+            
             //will need to work on redirection on delmar
             fileToRead.open("temp.dat");
             
@@ -53,6 +57,9 @@ int main(int argc, const char * argv[]) {
             fileName.append(".sp19");
        //     cout << fileName << endl;
             fileToRead.open(fileName.c_str());
+            
+            outFileNameBase = argv[1];
+            
             break;
     
         default:
@@ -72,19 +79,24 @@ int main(int argc, const char * argv[]) {
             cout << "Error: Could not read file.";
     }
     
+    outFileName = outFileNameBase + ".inorder";
     
-    outFile = fopen("out.InOrder","w");
-    cout << "Generating out.InOrder" << endl;
+    outFile = fopen(outFileName.c_str(), "w");
+    cout << "Generating out.inorder" << endl;
     myTree.printInorder(myTree.getRoot(myTree), outFile);
     fclose(outFile);
     
-    outFile = fopen("out.PreOrder", "w");
-    cout << "Generating out.PreOrder" << endl;
+    outFileName = outFileNameBase + ".preorder";
+    
+    outFile = fopen(outFileName.c_str(), "w");
+    cout << "Generating out.preorder" << endl;
     myTree.printPreorder(myTree.getRoot(myTree), outFile);
     fclose(outFile);
     
-    outFile = fopen("out.PostOrder", "w");
-    cout << "Generating out.PostOrder" << endl;
+    outFileName = outFileNameBase + ".postorder";
+    
+    outFile = fopen(outFileName.c_str(), "w");
+    cout << "Generating out.postorder" << endl;
     myTree.printPostorder(myTree.getRoot(myTree), outFile);
     fclose(outFile);
 
