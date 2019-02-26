@@ -15,14 +15,15 @@
 
 using namespace std;
 
-bool doesFileExistAndReadable(ifstream filename);
+//unused for this project.  keeping for future use
+// bool doesFileExistAndReadable(ifstream filename);
 
 int main(int argc, const char * argv[]) {
     
     ifstream fileToRead; //get the data to be processed
     ofstream fileToWrite;
-    ofstream file;
-    
+    FILE *outFile;
+   
     string fileName;
     string data; //variable that will be used in the tree
     string word;
@@ -30,20 +31,17 @@ int main(int argc, const char * argv[]) {
     
     tree myTree;
 
-    
-
     //keyboard input or redirection
     switch (argc)
     {
     //keyboard input or redirection input
         case 1:
-            cout << "Keyboard or redirection" << endl;
+            cout << "Keyboard or Redirection Input Mode" << endl;
             fileToWrite.open("temp.dat");
             //hitting enter will end input.  simulated end of file?
             while (getline(cin, data)){
                 fileToWrite << data << endl;
             }
-         
             //will need to work on redirection on delmar
             fileToRead.open("temp.dat");
             
@@ -74,19 +72,25 @@ int main(int argc, const char * argv[]) {
             cout << "Error: Could not read file.";
     }
     
-    freopen("out.InOrder", "w", stdout);
-    cout << "In order:" << endl;
-    myTree.printInorder(myTree.getRoot(myTree));
-    cout << endl;
-    freopen("out.PostOrder", "w", stdout);
-    cout << "Post order" << endl;
-    myTree.printPostorder(myTree.getRoot(myTree));
-    cout << endl;
-    freopen("out.PreOrder", "w", stdout);
-    cout << "Preorder" << endl;
-    myTree.printPreorder(myTree.getRoot(myTree));
-    cout << endl;
+    
+    outFile = fopen("out.InOrder","w");
+    cout << "Generating out.InOrder" << endl;
+    myTree.printInorder(myTree.getRoot(myTree), outFile);
+    fclose(outFile);
+    
+    outFile = fopen("out.PreOrder", "w");
+    cout << "Generating out.PreOrder" << endl;
+    myTree.printPreorder(myTree.getRoot(myTree), outFile);
+    fclose(outFile);
+    
+    outFile = fopen("out.PostOrder", "w");
+    cout << "Generating out.PostOrder" << endl;
+    myTree.printPostorder(myTree.getRoot(myTree), outFile);
+    fclose(outFile);
 
+
+    fileToRead.close();
+    
     //clean up the temporary file created
     remove("temp.dat");
     
@@ -94,8 +98,7 @@ int main(int argc, const char * argv[]) {
     
 }
 
-bool doesFileExistAndReadable(ifstream filename){
-    return filename.good();
-
-}
+// bool doesFileExistAndReadable(ifstream filename){
+//    return filename.good();
+//}
 

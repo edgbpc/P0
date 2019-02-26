@@ -11,6 +11,7 @@
 #include <iostream>
 #include "node.h"
 #include <string.h>
+#include <fstream>
 
 
 /*
@@ -66,30 +67,32 @@ void tree::buildTree(int key, string word){
     }
 }
 
-void tree::printInorder(struct node* node){
+void tree::printInorder(struct node* node, FILE *outFile){
     if (node == NULL)
         return;
     
-    printInorder(node->left);
+    printInorder(node->left, outFile);
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
         int depth = getLevel(root, int(node->key_value));
         string word = *it;
         
         if (word == *node->words.begin()){
-            printf("%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
-            printf("\n");
+            fprintf(outFile, "%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
+            fprintf(outFile, "\n");
         } else {
-            printf("%*c  %-9s", depth*2, ' ', word.c_str());
-            printf("\n");
+            fprintf(outFile, "%*c  %-9s", depth*2, ' ', word.c_str());
+            fprintf(outFile, "\n");
             
         }
 
-    printInorder(node->right);
+    printInorder(node->right, outFile);
+
     }
 }
 
 
-void tree::printPreorder(struct node* node){
+void tree::printPreorder(struct node* node, FILE *outFile){
+
     if (node == NULL)
         return;
 
@@ -99,25 +102,25 @@ void tree::printPreorder(struct node* node){
         string word = *it;
     
         if (word == *node->words.begin()){
-            printf("%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
-            printf("\n");
+            fprintf(outFile, "%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
+            fprintf(outFile, "\n");
         } else {
-            printf("%*c  %-9s", depth*2, ' ', word.c_str());
-            printf("\n");
+            fprintf(outFile, "%*c  %-9s", depth*2, ' ', word.c_str());
+            fprintf(outFile, "\n");
 
         }
     }
 
-    printPreorder(node->left);
-    printPreorder(node->right);
+    printPreorder(node->left, outFile);
+    printPreorder(node->right, outFile);
     
 }
 
-void tree::printPostorder(struct node* node){
+void tree::printPostorder(struct node* node, FILE *outFile){
     if (node == NULL)
         return;
-    printPostorder(node->left);
-    printPostorder(node->right);
+    printPostorder(node->left, outFile);
+    printPostorder(node->right, outFile);
 
 //    cout << node->key_value << ":";
     
@@ -126,11 +129,11 @@ void tree::printPostorder(struct node* node){
         string word = *it;
     
         if (word == *node->words.begin()){
-            printf("%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
-            printf("\n");
+            fprintf(outFile, "%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
+            fprintf(outFile, "\n");
         } else {
-            printf("%*c  %-9s", depth*2, ' ', word.c_str());
-            printf("\n");
+            fprintf(outFile, "%*c  %-9s", depth*2, ' ', word.c_str());
+            fprintf(outFile, "\n");
         }
     }
 }
