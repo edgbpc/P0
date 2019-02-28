@@ -75,21 +75,22 @@ void tree::printInorder(struct node* node, FILE *outFile){
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
         int depth = getLevel(root, int(node->key_value));
         string word = *it;
+        int wordLength = int(word.length());
         
         if (word == *node->words.begin()){
-            fprintf(outFile, "%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
-            fprintf(outFile, "\n");
+            fprintf(outFile, "%*c%d: %s ", depth*2, ' ', wordLength, word.c_str());
+     //       fprintf(outFile, "\n");
         } else {
-            fprintf(outFile, "%*c  %-9s", depth*2, ' ', word.c_str());
-            fprintf(outFile, "\n");
+            fprintf(outFile, "%s ", word.c_str());
+        //    fprintf(outFile, "\n");
             
         }
+    }
+    fprintf(outFile, "\n");
 
     printInorder(node->right, outFile);
 
-    }
 }
-
 
 void tree::printPreorder(struct node* node, FILE *outFile){
 
@@ -98,19 +99,19 @@ void tree::printPreorder(struct node* node, FILE *outFile){
 
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
         int depth = getLevel(root, int(node->key_value));
-        
         string word = *it;
+        int wordLength = int(word.length());
     
         if (word == *node->words.begin()){
-            fprintf(outFile, "%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
-            fprintf(outFile, "\n");
+            fprintf(outFile, "%*c%d: %s ", depth*2, ' ', wordLength, word.c_str());
+         //   fprintf(outFile, "\n");
         } else {
-            fprintf(outFile, "%*c  %-9s", depth*2, ' ', word.c_str());
-            fprintf(outFile, "\n");
+            fprintf(outFile, "%s ", word.c_str());
+         //   fprintf(outFile, "\n");
 
         }
     }
-
+    fprintf(outFile, "\n");
     printPreorder(node->left, outFile);
     printPreorder(node->right, outFile);
     
@@ -126,16 +127,19 @@ void tree::printPostorder(struct node* node, FILE *outFile){
     
     for (set<string>::const_iterator it=node->words.begin(); it != node->words.end(); ++it){
         int depth = getLevel(root, int(node->key_value));
+
         string word = *it;
-    
+        int wordLength = int(word.length());
+
         if (word == *node->words.begin()){
-            fprintf(outFile, "%*c%d:%-9s", depth*2, ' ', depth, word.c_str());
-            fprintf(outFile, "\n");
+            fprintf(outFile, "%*c%d: %s ", depth*2, ' ', wordLength, word.c_str());
+         //   fprintf(outFile, "\n");
         } else {
-            fprintf(outFile, "%*c  %-9s", depth*2, ' ', word.c_str());
-            fprintf(outFile, "\n");
+            fprintf(outFile, "%s ", word.c_str());
+        //    fprintf(outFile, "\n");
         }
     }
+    fprintf(outFile, "\n");
 }
 
 
@@ -158,7 +162,7 @@ int tree::getLevelUtil(struct node * node, int key_value, int level){
 }
 
 int tree::getLevel(struct node *node, int key_value){
-    return getLevelUtil(node, key_value, 1);
+    return getLevelUtil(node, key_value, 0);
 }
 
     

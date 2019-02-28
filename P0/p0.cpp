@@ -82,21 +82,21 @@ int main(int argc, const char * argv[]) {
     outFileName = outFileNameBase + ".inorder";
     
     outFile = fopen(outFileName.c_str(), "w");
-    cout << "Generating out.inorder" << endl;
+    cout << "Generating " << outFileNameBase << ".inorder" << endl;
     myTree.printInorder(myTree.getRoot(myTree), outFile);
     fclose(outFile);
     
     outFileName = outFileNameBase + ".preorder";
     
     outFile = fopen(outFileName.c_str(), "w");
-    cout << "Generating out.preorder" << endl;
+    cout << "Generating " << outFileNameBase << ".preorder" << endl;
     myTree.printPreorder(myTree.getRoot(myTree), outFile);
     fclose(outFile);
     
     outFileName = outFileNameBase + ".postorder";
     
     outFile = fopen(outFileName.c_str(), "w");
-    cout << "Generating out.postorder" << endl;
+    cout << "Generating " << outFileNameBase << ".postorder" << endl;
     myTree.printPostorder(myTree.getRoot(myTree), outFile);
     fclose(outFile);
 
