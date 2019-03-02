@@ -1,6 +1,6 @@
 CC    = g++
 CFLAGS  =
-TARGET1 = p0
+TARGET1 = P0
 TARGET2 = tree
 OBJS1     = p0.o tree.o
 OBJS2     =
@@ -21,4 +21,4 @@ P0: $(OBJS1)
 
 .PHONY: clean
 clean:
-	/bin/rm -f *.o *~ $(TARGET1) $(TARGET2)
+	/bin/rm -f *.o *~ *.inorder *.preorder *.postorder  $(TARGET1) $(TARGET2)

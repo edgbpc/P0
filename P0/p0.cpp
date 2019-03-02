@@ -10,6 +10,7 @@
 #include <string.h>
 #include <fstream>
 #include <stdio.h>
+#include <stdlib.h>
 #include "node.h"
 #include "tree.h"
 
@@ -76,7 +77,8 @@ int main(int argc, const char * argv[]) {
             myTree.buildTree(wordLength, word);
         }
     } else {
-            cout << "Error: Could not read file.";
+            cout << "Error: Could not read file. Exiting" << endl;
+	    exit 1;
     }
     
     outFileName = outFileNameBase + ".inorder";
