@@ -65,6 +65,7 @@ int main(int argc, const char * argv[]) {
     
         default:
             cout << "Error:  Incorrect Parameters.  Exiting" << endl;
+            return 0;
             break;
     }
     
