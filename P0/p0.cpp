@@ -69,14 +69,13 @@ int main(int argc, const char * argv[]) {
     }
     
     if (fileToRead.good()){
+        
         while (fileToRead >> word){
-          //  cout << word << endl;
-
             wordLength = int(word.length());
-            //cout << wordLength << endl;
             myTree.buildTree(wordLength, word);
-            
-            outFileName = outFileNameBase + ".inorder";
+        }
+        
+        outFileName = outFileNameBase + ".inorder";
             
             outFile = fopen(outFileName.c_str(), "w");
             cout << "Generating " << outFileNameBase << ".inorder" << endl;
@@ -104,7 +103,7 @@ int main(int argc, const char * argv[]) {
             
             return 0;
 
-        }
+        
     } else {
             cout << "Error: Could not read file " << fileName <<  ". Exiting." << endl;
             return 0;
