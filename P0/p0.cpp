@@ -64,7 +64,7 @@ int main(int argc, const char * argv[]) {
             break;
     
         default:
-            cout << "Error" << endl;
+            cout << "Error:  Incorrect Parameters.  Exiting" << endl;
             break;
     }
     
@@ -75,40 +75,41 @@ int main(int argc, const char * argv[]) {
             wordLength = int(word.length());
             //cout << wordLength << endl;
             myTree.buildTree(wordLength, word);
+            
+            outFileName = outFileNameBase + ".inorder";
+            
+            outFile = fopen(outFileName.c_str(), "w");
+            cout << "Generating " << outFileNameBase << ".inorder" << endl;
+            myTree.printInorder(myTree.getRoot(myTree), outFile);
+            fclose(outFile);
+            
+            outFileName = outFileNameBase + ".preorder";
+            
+            outFile = fopen(outFileName.c_str(), "w");
+            cout << "Generating " << outFileNameBase << ".preorder" << endl;
+            myTree.printPreorder(myTree.getRoot(myTree), outFile);
+            fclose(outFile);
+            
+            outFileName = outFileNameBase + ".postorder";
+            
+            outFile = fopen(outFileName.c_str(), "w");
+            cout << "Generating " << outFileNameBase << ".postorder" << endl;
+            myTree.printPostorder(myTree.getRoot(myTree), outFile);
+            fclose(outFile);
+            
+            fileToRead.close();
+            
+            //clean up the temporary file created
+            remove("temp.dat");
+            
+            return 0;
+
         }
     } else {
-            cout << "Error: Could not read file. Exiting" << endl;
-	    exit 1;
+            cout << "Error: Could not read file " << fileName <<  ". Exiting." << endl;
+            return 0;
     }
     
-    outFileName = outFileNameBase + ".inorder";
-    
-    outFile = fopen(outFileName.c_str(), "w");
-    cout << "Generating " << outFileNameBase << ".inorder" << endl;
-    myTree.printInorder(myTree.getRoot(myTree), outFile);
-    fclose(outFile);
-    
-    outFileName = outFileNameBase + ".preorder";
-    
-    outFile = fopen(outFileName.c_str(), "w");
-    cout << "Generating " << outFileNameBase << ".preorder" << endl;
-    myTree.printPreorder(myTree.getRoot(myTree), outFile);
-    fclose(outFile);
-    
-    outFileName = outFileNameBase + ".postorder";
-    
-    outFile = fopen(outFileName.c_str(), "w");
-    cout << "Generating " << outFileNameBase << ".postorder" << endl;
-    myTree.printPostorder(myTree.getRoot(myTree), outFile);
-    fclose(outFile);
-
-
-    fileToRead.close();
-    
-    //clean up the temporary file created
-    remove("temp.dat");
-    
-    return 0;
     
 }
 
